@@ -16,8 +16,8 @@ import CrewStateRenderer from "./CrewStateRenderer";
 import { CrewHumanFeedbackRenderer } from "./CrewHumanFeedbackRenderer";
 
 import { MessageRole, TextMessage } from "@copilotkit/runtime-client-gql";
-// import { formatText } from "@/lib/utils";
-import { CopilotKitCSSProperties, CopilotChat } from "@copilotkit/react-ui";
+import Chat from "./Chat";
+
 import {
   ResizablePanelGroup,
   ResizablePanel,
@@ -202,32 +202,7 @@ export const CrewQuickstart: React.FC<CrewQuickstartProps> = ({
     <div className="w-full h-full relative">
       <ResizablePanelGroup direction={direction} className="w-full h-full">
         <ResizablePanel defaultSize={60} minSize={30}>
-          <div
-            className="h-full relative overflow-y-auto"
-            style={
-              {
-                "--copilot-kit-primary-color": "#4F4F4F",
-              } as CopilotKitCSSProperties
-            }>
-            <CopilotChat
-              instructions={
-                "You are assisting the user as best as you can. Answer in the best way possible given the data you have."
-              }
-              labels={{
-                title: "Your Assistant",
-                initial:
-                  "Hi! 👋 Please provide the location you want to find a restaurant before we get started.",
-              }}
-              className="h-full flex flex-col"
-              icons={{
-                spinnerIcon: (
-                  <span className="h-5 w-5 text-gray-500 animate-pulse">
-                    ...
-                  </span>
-                ),
-              }}
-            />
-          </div>
+          <Chat />
         </ResizablePanel>
 
         <ResizableHandle withHandle />
